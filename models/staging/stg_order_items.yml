@@ -1,0 +1,27 @@
+version: 2
+
+models:
+    -   name: stg_order_items
+        description: "Items table to declare which order have which item."
+        columns:
+        -   name: item_id
+            description: "Identifier of each item ordered"
+            tests:
+                -   not_null
+        
+        -   name: order_id
+            description: "Identifier of each item ordered"
+            tests:
+                -   not_null
+                -   relationships:
+                        to: ref('stg_orders')
+                        field: order_id
+
+
+        -   name: product_id
+            description: "product identifier"
+            tests:
+                -   not_null
+                -   relationships:
+                        to: ref('stg_products')
+                        field: product_id
