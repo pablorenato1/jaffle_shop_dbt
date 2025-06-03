@@ -3,5 +3,5 @@ version: 2
 models:
     -   name: stg_products
         description: "Tables of Products"
-        columns:
+        #columns:
             #-   name: 
