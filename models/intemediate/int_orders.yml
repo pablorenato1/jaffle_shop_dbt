@@ -1,0 +1,9 @@
+version: 2
+
+models:
+    -   name: int_orders
+        description: "The total amount that a customer spent in the company"
+        columns:
+        -   name: "total_spent"
+            tests:
+            -   not_null
