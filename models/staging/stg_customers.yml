@@ -1,0 +1,17 @@
+version: 2
+
+models:
+    -   name: stg_customers
+        description: "Renamed customer data from raw source"
+        columns:
+        -   name: customer_id
+            description: "Unique identifies for each customer."
+            tests:
+            -   not_null
+            -   unique
+        
+        -   name: customer_name
+            description: "Customer full name"
+            tests:
+            -   not_null
+      
