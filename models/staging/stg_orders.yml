@@ -1,0 +1,48 @@
+version: 2
+
+models:
+    -   name: stg_orders
+        description: "Orders table with informations about orders"
+        columns:
+        -   name: order_id
+            description: "Primary Key"
+            tests:
+            -   not_null
+            -   unique
+
+        -   name: customer_id
+            description: "The foreing key from stg_customer, to identify the customers"
+            tests:
+            -   not_null
+            -   relationships:
+                    to: ref('stg_customers')
+                    field: customer_id
+        
+        -   name: ordered_at
+            description: "The time when the orders were made"
+            tests:
+            -   not_null
+        
+        -   name: store_id
+            description: "the store where the order were made"
+            tests:
+            -   not_null
+            -   relationships:
+                    to: ref('stg_stores')
+                    field: store_id
+        
+        -   name: sub_total
+            description: "The total amount of the order before taxes"
+            tests:
+            -   not_null
+        
+        -   name: tax_paid
+            description: "The amount of tax being paid"
+            tests:
+            -   not_null
+        
+        -   name: order_total
+            description: "Total paid by customer"
+            tests:
+            -   not_null
+ 
